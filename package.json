@@ -1,0 +1,23 @@
+{
+  "name": "pats-note-taker",
+  "version": "1.0.0",
+  "description": "Pat's Note Taker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickaregan/pats-note-taker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickaregan/pats-note-taker/issues"
+  },
+  "homepage": "https://github.com/patrickaregan/pats-note-taker#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
