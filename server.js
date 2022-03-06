@@ -14,10 +14,10 @@ const createNewNote = (body) => {
     return notes;
 }
 
-
 // ****************************************
 // Configure App
 // ****************************************
+const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -49,6 +49,6 @@ app.get('*', (req, res) => {
 // ****************************************
 // Start App
 // ****************************************
-app.listen(3001, () => {
-    console.log('App server now listening on port 3001!');
+app.listen(PORT, () => {
+    console.log('App server now listening on port ${PORT}!');
 })
