@@ -9,9 +9,16 @@ const path = require('path');
 // ****************************************
 // Functions
 // ****************************************
-const createNewNote = (body) => {
-    
-    return notes;
+const deleteHelper = (noteid) => {
+    //console.log("Note to delete: " + noteid);
+    notes.forEach(element => {
+        if (element.id == noteid) {
+            //console.log("match");
+            element.deleted = true;
+        }
+        //console.log(element.id, element.deleted);
+    });
+    fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notes), null, 2);
 }
 
 // ****************************************
@@ -40,6 +47,12 @@ app.post('/api/notes', (req, res) => {
     notes.push(newNote);
     fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notes), null, 2);
     res.json(newNote);
+})
+
+app.delete('/api/notes/:id', (req, res) => {
+    const noteid = req.params.id;
+    deleteHelper(noteid);
+    res.send(`Got a delete request for note ${noteid}!`);
 })
 
 app.get('*', (req, res) => {
